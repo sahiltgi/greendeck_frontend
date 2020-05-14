@@ -158,7 +158,7 @@ class Filter extends Component {
             type="submit"
             onClick={this.submitVal}
           >
-            Submit
+            Search
           </button>
         </div>
       </div>
