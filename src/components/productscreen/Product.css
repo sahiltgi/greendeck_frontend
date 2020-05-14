@@ -1,0 +1,16 @@
+.card {
+  width: 16rem;
+  box-shadow: 2px 2px white;
+  /* height: 10rem; */
+}
+
+.card-img-top {
+  height: 20rem;
+}
+/* .size-adjust {
+  height: 10rem;
+} */
+
+.overflow-hidden {
+  height: 1rem;
+}
