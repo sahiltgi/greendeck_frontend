@@ -1,16 +1,20 @@
 import React, { Component } from "react";
-import "./Display.css";
 import Filter from "../filterscreen/Filter.jsx";
 import Product from "../productscreen/Product";
 
 class Display extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      rerender: 0,
+    };
   }
 
   filterValue = (val) => {
-    this.setState(val);
+    this.setState({
+      ...val,
+      rerender: this.state.rerender + 1,
+    });
   };
 
   render() {
@@ -19,7 +23,6 @@ class Display extends Component {
         <div className="col-md-12">
           <div className="row">
             <div className="col-md-3">
-              {/* <Filter prop={this.handleFilterChange} /> */}
               <Filter filterData={this.filterValue} />
             </div>
             <div className="col-md-9">

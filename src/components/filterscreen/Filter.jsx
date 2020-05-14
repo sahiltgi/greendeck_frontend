@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Filter.css";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
@@ -9,7 +8,7 @@ class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      discountPercentage: null,
+      discountPercentage: 0,
       compareOperator: "",
       brandName: "",
       stockAvailability: false,
@@ -23,8 +22,23 @@ class Filter extends Component {
     this.props.filterData(this.state);
   };
 
-  changeHandler = (e) => {
-    this.setState({ [e.target.name]: [e.target.value] });
+  discountHandler = (e) => {
+    this.setState({ discountPercentage: e.target.value });
+  };
+  comparatorHandler = (e) => {
+    this.setState({ compareOperator: e.target.value });
+  };
+  brandHandler = (e) => {
+    this.setState({ brandName: e.target.value });
+  };
+  stockHandler = (e) => {
+    this.setState({ stockAvailability: e.target.value });
+  };
+  startDateHandler = (e) => {
+    this.setState({ startDate: e.target.value });
+  };
+  endDateHandler = (e) => {
+    this.setState({ endDate: e.target.value });
   };
 
   render() {
@@ -48,16 +62,15 @@ class Filter extends Component {
                 id="standard-number"
                 label="%"
                 type="number"
-                maxLength={100}
                 name="discountPercentage"
                 value={discountPercentage}
-                onChange={this.changeHandler}
-                InputProps={{
-                  inputProps: {
-                    max: 100,
-                    min: 0,
-                  },
-                }}
+                onChange={this.discountHandler}
+                // InputProps={{
+                //   inputProps: {
+                //     max: 100,
+                //     min: 0,
+                //   },
+                // }}
               />
             </div>
             <div className="col-md-6 mb-3">
@@ -67,7 +80,7 @@ class Filter extends Component {
                   native
                   value={compareOperator}
                   name="compareOperator"
-                  onChange={this.changeHandler}
+                  onChange={this.comparatorHandler}
                 >
                   <option aria-label="None" value="" />
                   <option value="greaterThan">Greater Than</option>
@@ -88,7 +101,7 @@ class Filter extends Component {
                 name="brandName"
                 type="search"
                 value={brandName}
-                onChange={this.changeHandler}
+                onChange={this.brandHandler}
                 style={{ textAlign: "center" }}
               />
             </div>
@@ -104,7 +117,7 @@ class Filter extends Component {
                   native
                   value={stockAvailability}
                   name="stockAvailability"
-                  onChange={this.changeHandler}
+                  onChange={this.stockHandler}
                 >
                   <option aria-label="None" value="" />
                   <option value={true}>Available</option>
@@ -124,7 +137,7 @@ class Filter extends Component {
                   name="startDate"
                   value={startDate}
                   type="date"
-                  onChange={this.changeHandler}
+                  onChange={this.startDateHandler}
                 />
               </div>
               <div className="col-md-2"></div>
@@ -134,7 +147,7 @@ class Filter extends Component {
                   name="endDate"
                   value={endDate}
                   type="date"
-                  onChange={this.changeHandler}
+                  onChange={this.endDateHandler}
                 />
               </div>
               <div className="col-md-2"></div>
