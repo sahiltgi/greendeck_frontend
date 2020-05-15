@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Product.css";
 import axios from "axios";
 import Pagination from "@material-ui/lab/Pagination";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 class Product extends Component {
   constructor(props) {
@@ -93,10 +95,17 @@ class Product extends Component {
     return (
       <div className="container">
         <div className="d-flex flex-row justify-content-center flex-wrap">
+          <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={2000} //3 secs
+          />
           {result.length ? (
             result.map((result) => (
               <div key={result._id}>
-                <div className="card mt-5 mr-4 ml-2 mb-5">
+                <div className="card mt-5 mr-4 ml-2 mb-3">
                   <img
                     className="card-img-top"
                     src={result.media.standard[0].url}
@@ -117,7 +126,7 @@ class Product extends Component {
             <div>{errorMessage}</div>
           )}
         </div>
-        <div className="ml-5 mb-5" style={{ color: "white" }}>
+        <div className="ml-5 mb-3 positionSet" style={{ color: "white" }}>
           <Pagination
             count={409}
             onChange={this.handlePageChange}

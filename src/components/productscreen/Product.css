@@ -1,7 +1,6 @@
 .card {
   width: 16rem;
-  box-shadow: 2px 2px white;
-  /* height: 10rem; */
+  box-shadow: 2px 2px grey;
 }
 
 .card-img-top {
@@ -13,4 +12,18 @@
 
 .overflow-hidden {
   height: 1rem;
+}
+
+/* .positionSet {
+  position: absolute;
+  bottom: 0px;
+} */
+
+.flex-wrap {
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.flex-wrap::-webkit-scrollbar {
+  background: transparent; /* make scrollbar transparent */
 }
