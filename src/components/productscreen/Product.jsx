@@ -48,7 +48,7 @@ class Product extends Component {
     }
     axios
       .post(
-        `https://greendeck-20.herokuapp.com/api/filter?pageNumber=${pageNumber}`,
+        `https://shoppingbackend-20.herokuapp.com/api/filter?pageNumber=${pageNumber}`,
         {
           responseType: "json",
           headers: {
