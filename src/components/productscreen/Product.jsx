@@ -24,7 +24,7 @@ class Product extends Component {
       this.props.data.discountPercentage !== 0
     ) {
       body["compareOperator"] = this.props.data.compareOperator;
-      body["discountPercentage"] = this.props.data.discountPercentage;
+      body["discountPercentage"] = parseInt(this.props.data.discountPercentage);
     }
     if (this.props.data.brandName && this.props.data.brandName !== "") {
       body["brandName"] = this.props.data.brandName;
@@ -33,7 +33,9 @@ class Product extends Component {
       this.props.data.stockAvailability &&
       this.props.data.stockAvailability !== false
     ) {
-      body["stockAvailability"] = this.props.data.stockAvailability;
+      let stockBool =
+        this.props.data.stockAvailability === "true" ? true : false;
+      body["stockAvailability"] = stockBool;
     }
     if (
       this.props.data.startDate &&
@@ -46,7 +48,7 @@ class Product extends Component {
     }
     axios
       .post(
-        `https://shoppingbackend-20.herokuapp.com/api/filter?pageNumber=${pageNumber}`,
+        `https://greendeck-20.herokuapp.com/api/filter?pageNumber=${pageNumber}`,
         {
           responseType: "json",
           headers: {
