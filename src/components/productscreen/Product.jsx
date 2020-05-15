@@ -100,7 +100,7 @@ class Product extends Component {
             color="#00BFFF"
             height={100}
             width={100}
-            timeout={2000} //3 secs
+            timeout={2000}
           />
           {result.length ? (
             result.map((result) => (
@@ -126,7 +126,7 @@ class Product extends Component {
             <div>{errorMessage}</div>
           )}
         </div>
-        <div className="ml-5 mb-3 positionSet" style={{ color: "white" }}>
+        <div className="ml-2 mb-3 positionSet">
           <Pagination
             count={409}
             onChange={this.handlePageChange}
